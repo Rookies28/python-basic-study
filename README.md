@@ -21,7 +21,44 @@ code .
 
 ## How to Setup Python `ENV`
 
-### pip
+### venv (가상환경 사용 - 권장)
+가상환경은 프로젝트마다 독립적인 패키지 환경을 만들어줍니다.
+
+**Windows (cmd) - 한번에 복사해서 사용**
+```cmd
+REM 1. 가상환경 생성
+python -m venv .venv
+
+REM 2. 가상환경 활성화
+.venv\Scripts\activate
+
+REM 3. pip 업그레이드 및 패키지 설치
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+
+REM 4. 작업 종료시 가상환경 비활성화 (아래 명령어 실행)
+REM deactivate
+```
+
+**Mac/Linux (bash) - 한번에 복사해서 사용**
+```bash
+# 1. 가상환경 생성
+python -m venv .venv
+
+# 2. 가상환경 활성화
+source .venv/bin/activate
+
+# 3. pip 업그레이드 및 패키지 설치
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+
+# 4. 작업 종료시 가상환경 비활성화 (아래 명령어 실행)
+# deactivate
+```
+
+> **참고**: 가상환경이 활성화되면 터미널 앞에 `(.venv)`가 표시됩니다.
+
+### pip (가상환경 없이 직접 설치)
 ```bash
 python -m pip install --upgrade pip
 pip install -r requirements.txt
@@ -31,10 +68,71 @@ pip install -r requirements.txt
 ```bash
 conda create -n turtle python=3.12 -y
 conda activate turtle
-conda install -y jupyter 
+conda install -y jupyter
 conda install -y r::r-turtlegraphics
 conda install -y conda-forge::pygame
 ```
+
+## VSCode에서 Jupyter 노트북 커널 설정하기
+
+가상환경을 만들었다면, VSCode에서 `.ipynb` 파일을 열 때 해당 가상환경을 선택해야 합니다.
+
+### 방법 1: 노트북 파일에서 직접 선택 (가장 쉬움)
+
+1. **VSCode에서 `.ipynb` 파일 열기**
+   - 예: `2021104.ipynb` 파일을 클릭
+
+2. **오른쪽 상단의 커널 선택 버튼 클릭**
+   - 파일을 열면 오른쪽 상단에 `Select Kernel` (커널 선택) 또는 현재 커널 이름이 보입니다
+   - 해당 버튼을 클릭합니다
+
+3. **Python 환경 선택**
+   - `Python Environments...` (Python 환경...) 선택
+   - 또는 목록에서 직접 원하는 환경 선택
+
+4. **가상환경 선택**
+   - **venv 사용시**: `.venv (Python 3.x.x)` 선택
+   - **conda 사용시**: `turtle (Python 3.12.x)` 선택
+   - 목록에 안보이면 `+ Select Another Kernel...` (다른 커널 선택...) → `Python Environments` (Python 환경) 클릭
+
+5. **확인**
+   - 오른쪽 상단에 선택한 환경 이름이 표시되면 성공!
+   - 예: `.venv (Python 3.12.0)` 또는 `turtle`
+
+### 방법 2: 명령 팔레트 사용
+
+1. **명령 팔레트 열기**
+   - Windows/Linux: `Ctrl + Shift + P`
+   - Mac: `Cmd + Shift + P`
+
+2. **커널 선택 명령어 입력**
+   - `Notebook: Select Notebook Kernel` (노트북: 노트북 커널 선택) 입력 후 선택
+
+3. **Python 환경 선택**
+   - `Python Environments...` (Python 환경...) 선택
+   - 원하는 가상환경 선택 (`.venv` 또는 `turtle`)
+
+### 문제 해결
+
+**가상환경이 목록에 안보이는 경우:**
+
+1. **ipykernel 설치 확인**
+   ```bash
+   # 가상환경 활성화 후
+   pip install ipykernel
+   ```
+
+2. **VSCode 재시작**
+   - VSCode를 완전히 종료 후 다시 실행
+
+3. **Python 확장 설치 확인**
+   - VSCode 확장 탭에서 `Python` 검색
+   - Microsoft의 Python 확장이 설치되어 있는지 확인
+   - Jupyter 확장도 함께 설치 권장
+
+**커널이 시작되지 않는 경우:**
+- 가상환경이 제대로 활성화되어 있는지 확인
+- 터미널에서 `python --version` 실행하여 Python이 정상 설치되어 있는지 확인
 
 ## Git 설치
 - git 설치가 힘들시 페이지 오른쪽 상단의 `<>Code` > `Download ZIP` 을 통해서 다운로드
