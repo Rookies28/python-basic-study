@@ -13,6 +13,49 @@
 
 # 1. How to Start
 ## Install Repo
+
+### 방법 1: GitHub 웹에서 다운로드 (Git을 모르는 초보자 권장)
+
+#### 전체 프로젝트 받기 (처음 시작할 때)
+
+1. **GitHub 저장소 페이지 접속**
+   - https://github.com/Rookies28/python-basic-study 접속
+
+2. **전체 프로젝트 다운로드**
+   - 오른쪽 상단의 녹색 `<> Code` 버튼 클릭
+   - `Download ZIP` 클릭
+
+3. **압축 해제**
+   - 다운로드된 `python-basic-study-main.zip` 파일을 원하는 폴더에 압축 해제
+   - 예: `C:\Users\내이름\Documents\python-basic-study-main`
+
+4. **VSCode에서 열기**
+   - VSCode 실행
+   - `File` (파일) → `Open Folder` (폴더 열기)
+   - 압축 해제한 폴더 선택
+
+#### 개별 파일 받기 (업데이트된 파일만 받을 때)
+
+프로젝트가 업데이트되었을 때 특정 파일만 받는 방법입니다.
+
+1. **GitHub 저장소 페이지 접속**
+   - https://github.com/Rookies28/python-basic-study 접속
+
+2. **원하는 파일 찾기**
+   - 폴더를 클릭하며 원하는 파일로 이동
+   - 예: `20251104.ipynb` 클릭
+
+3. **파일 다운로드**
+   - 파일이 열리면 오른쪽 상단의 `Raw` 버튼 또는 다운로드 아이콘 클릭
+   - 또는 `Download raw file` 클릭
+   - `.ipynb` 파일의 경우: 오른쪽 상단 `...` (더보기) → `Download` 클릭
+
+4. **다운로드한 파일 이동**
+   - 다운로드한 파일을 프로젝트 폴더의 해당 위치로 이동
+   - 예: `python-basic-study-main/problems/` 폴더에 복사
+
+### 방법 2: Git 명령어 사용 (개발자용)
+
 ```bash
 git clone https://github.com/Rookies28/python-basic-study.git
 cd python-basic-study
